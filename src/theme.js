@@ -5,34 +5,33 @@ import {
     defineConfig,
 } from "@chakra-ui/react"
 
+import { buttonRecipe } from "./recipe/button.js"
+
 const config = defineConfig({
     globalCss: {
-        "body": {
-            "backgroundColor": "#1a1c21",
-            "color": "#fff"
-        }
+        body: {
+            colorPalette: "orange",
+            backgroundColor: "black",
+            color: "white",
+        },
+
     },
     theme: {
         tokens: {
-            colors: {
-                brand: {
-                    ...defaultConfig.theme.tokens.colors.orange
-                }
+            fonts: {
+                body: { value: "Roboto, sans-serif" },
+                heading: { value: "Poppins, sans-serif" },
+                mono: { value: "Fira Code, monospace" },
             },
         },
         semanticTokens: {
-            colors: {
-                brand: {
-                    solid: { value: "{colors.brand.500}" },
-                    contrast: { value: "{colors.brand.100}" },
-                    fg: { value: "{colors.brand.700}" },
-                    muted: { value: "{colors.brand.100}" },
-                    subtle: { value: "{colors.brand.200}" },
-                    emphasized: { value: "{colors.brand.300}" },
-                    focusRing: { value: "{colors.brand.500}" },
-                },
+            radii: {
+                l1: { value: 'none' },
+                l2: { value: 'none' },
+                l3: { value: 'none' },
             },
         },
+
     },
 })
 

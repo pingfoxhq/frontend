@@ -3,24 +3,30 @@ import { LocationProvider, Router, Route, hydrate, prerender as ssr } from 'prea
 import { Header } from './components/Header.jsx';
 import { Home } from './pages/Home/index.jsx';
 import { NotFound } from './pages/_404.jsx';
+import { SignUp } from './pages/SignUp/index.jsx';
 
-import { ChakraProvider } from '@chakra-ui/react';
+import { Box, ChakraProvider } from '@chakra-ui/react';
 
 import { system } from "./theme.js"
+import { LogIn } from './pages/Login/index.jsx';
 
 export function App() {
 	return (
-		<ChakraProvider value={system}>
-			<LocationProvider>
+		<LocationProvider>
+			<ChakraProvider value={system}>
+				<Box bg={'black'}>
 				<Header />
 				<main>
 					<Router>
 						<Route path="/" component={Home} />
+						<Route path="/auth/sign-up" component={SignUp} />
+						<Route path="/auth/log-in" component={LogIn} />
 						<Route default component={NotFound} />
 					</Router>
 				</main>
-			</LocationProvider>
-		</ChakraProvider>
+				</Box>
+			</ChakraProvider>
+		</LocationProvider>
 	);
 }
 

@@ -22,28 +22,30 @@ export function Header() {
 			borderBottomWidth={'1px'}
 		>
 			<Flex minWidth={"max-content"} alignItems={"center"} spaceX={"1"}>
-				<Image
-					src={logo}
-					w={10}
-					_dark={{ display: "none" }}
-					objectFit={"contain"}
-					alt={"PingFox Logo"}
-				/>
-				<Heading fontSize={'2xl'} fontWeight={'bold'} color={'brand.500'}>PingFox</Heading>
+				<Link href={"/"}>
+					<Image
+						src={logo}
+						w={10}
+						_dark={{ display: "none" }}
+						objectFit={"contain"}
+						alt={"PingFox Logo"}
+					/>
+					<Heading size={'2xl'} fontWeight={'bold'} color={'orange.500'}>PingFox</Heading>
+				</Link>
 				<Spacer />
 				<Group>
 
-				<Button asChild colorPalette={'brand'}>
-					<a href="/" class={url == '/' && 'active'}>
-						<FaRocket /> SignUp
-					</a>
-				</Button>
-				<Button asChild bgGradient={'to-t'} gradientFrom={'black'} gradientTo={'gray.950'}>
-					<a href="/" class={url == '/' && 'active'}>
-						<MdOutlineLogin /> Login
+					<Button asChild bgGradient={'to-t'} gradientFrom={'orange.600'} gradientTo={'orange.500'}>
+						<a href="/auth/sign-up" class={url == '/auth/sign-up' && 'active'}>
+							<FaRocket /> SignUp
+						</a>
+					</Button>
+					<Button asChild bgGradient={'to-t'} gradientFrom={'black'} gradientTo={'gray.800'}>
+						<a href="/auth/log-in" class={url == '/auth/log-in' && 'active'}>
+							<MdOutlineLogin /> Login
 
-					</a>
-				</Button>
+						</a>
+					</Button>
 				</Group>
 			</Flex>
 		</Box>
