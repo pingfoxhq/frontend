@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Group, Heading, Image, Link, Spacer } from '@chakra-ui/react';
+import { Box, Button, Flex, Group, Heading, Image, Link, Spacer, Text } from '@chakra-ui/react';
 import { useLocation } from 'preact-iso';
 
 import logo from "../assets/images/logo.png"
@@ -31,6 +31,7 @@ export function Header() {
 						alt={"PingFox Logo"}
 					/>
 					<Heading size={'2xl'} fontWeight={'bold'} color={'orange.500'}>PingFox</Heading>
+					<Text fontSize={'sm'} color={'gray.500'}>Alpha</Text>
 				</Link>
 				<Spacer />
 				<Group>
@@ -40,7 +41,7 @@ export function Header() {
 							<FaRocket /> SignUp
 						</a>
 					</Button>
-					<Button asChild bgGradient={'to-t'} gradientFrom={'black'} gradientTo={'gray.800'}>
+					<Button asChild bgGradient={'to-t'} gradientFrom={'black'} gradientTo={'gray.950'}>
 						<a href="/auth/log-in" class={url == '/auth/log-in' && 'active'}>
 							<MdOutlineLogin /> Login
 

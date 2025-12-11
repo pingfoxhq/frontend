@@ -11,16 +11,16 @@ const config = defineConfig({
     globalCss: {
         body: {
             colorPalette: "orange",
-            backgroundColor: "black",
-            color: "white",
+            backgroundColor: "#141619",
+            color: "#f3f4f6",
         },
 
     },
     theme: {
         tokens: {
             fonts: {
-                body: { value: "Roboto, sans-serif" },
-                heading: { value: "Poppins, sans-serif" },
+                body: { value: "ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" },
+                heading: { value: "ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" },
                 mono: { value: "Fira Code, monospace" },
             },
         },

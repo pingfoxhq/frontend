@@ -9,21 +9,21 @@ import { Box, ChakraProvider } from '@chakra-ui/react';
 
 import { system } from "./theme.js"
 import { LogIn } from './pages/Login/index.jsx';
+import { Toaster } from './components/ui/toaster.jsx';
 
 export function App() {
 	return (
 		<LocationProvider>
 			<ChakraProvider value={system}>
-				<Box bg={'black'}>
+				<Box>
 				<Header />
-				<main>
 					<Router>
 						<Route path="/" component={Home} />
 						<Route path="/auth/sign-up" component={SignUp} />
 						<Route path="/auth/log-in" component={LogIn} />
 						<Route default component={NotFound} />
 					</Router>
-				</main>
+					<Toaster/>
 				</Box>
 			</ChakraProvider>
 		</LocationProvider>
