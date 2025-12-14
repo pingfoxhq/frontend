@@ -24,6 +24,7 @@ import { useAuth } from "./auth/useAuth.js";
 import "./api/interceptors"; // MUST be imported once
 import { system } from "./theme.js";
 import { FadeTransition } from "./components/FadeTransition.jsx";
+import { DashBoard } from "./pages/DashBoard.jsx";
 
 function AppContent() {
 	const { user, loading } = useAuth();
@@ -49,9 +50,10 @@ function AppContent() {
 
 					<Router>
 						<Route path="/" component={Home} />
-						<Route path="/auth/sign-up" component={SignUp} />
-						<Route path="/auth/log-in" component={LogIn} />
-						<Route path="/auth/log-out" component={Logout} />
+						<Route path="/auth/sign-up/" component={SignUp} />
+						<Route path="/auth/log-in/" component={LogIn} />
+						<Route path="/auth/log-out/" component={Logout} />
+						<Route path="/dashboard/" component={DashBoard} />
 						<Route default component={NotFound} />
 					</Router>
 
