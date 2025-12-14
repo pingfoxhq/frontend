@@ -1,12 +1,12 @@
-import { Box, Button, Flex, Group, Heading, Image, Link, Spacer, Text } from '@chakra-ui/react';
+import { Avatar, AvatarGroup, Box, Button, Flex, Group, Heading, IconButton, Image, Link, Spacer, Text } from '@chakra-ui/react';
 import { useLocation } from 'preact-iso';
 
 import logo from "../assets/images/logo.png"
 import { FaHome, FaRocket } from 'react-icons/fa';
 import { MdOutlineLogin } from 'react-icons/md';
 
-export function Header() {
-	const { url } = useLocation();
+export function Header({ user }) {
+	const { url, route } = useLocation();
 
 	return (
 		<Box
@@ -35,18 +35,42 @@ export function Header() {
 				</Link>
 				<Spacer />
 				<Group>
+					{user ? (
+						<>
+							<IconButton asChild aria-label="User Profile" variant={'ghost'} borderRadius={"100%"}>
+								<AvatarGroup>
+									<Avatar.Root>
+										<Avatar.Fallback name={user.username} />
+										<Avatar.Image src={"http://localhost:8000" + user.userprofile.avatar} alt={user.username} />
+									</Avatar.Root>
+								</AvatarGroup>
+							</IconButton>
+							<Button asChild bgGradient={'to-t'} gradientFrom={'orange.600'} gradientTo={'orange.500'}>
+								<a href="/dashboard" class={url == '/dashboard' && 'active'}>
+									<FaRocket /> Dashboard
+								</a>
+							</Button>
+							<Button asChild bgGradient={'to-t'} gradientFrom={'black'} gradientTo={'gray.950'}>
+								<a href="/auth/log-out">
+									<MdOutlineLogin /> Log Out
+								</a>
+							</Button>
+						</>
+					) : (
+						<>
+							<Button asChild bgGradient={'to-t'} gradientFrom={'orange.600'} gradientTo={'orange.500'}>
+								<a href="/auth/sign-up" class={url == '/auth/sign-up' && 'active'}>
+									<FaRocket /> SignUp
+								</a>
+							</Button>
+							<Button asChild bgGradient={'to-t'} gradientFrom={'black'} gradientTo={'gray.950'}>
+								<a href="/auth/log-in" class={url == '/auth/log-in' && 'active'}>
+									<MdOutlineLogin /> Login
 
-					<Button asChild bgGradient={'to-t'} gradientFrom={'orange.600'} gradientTo={'orange.500'}>
-						<a href="/auth/sign-up" class={url == '/auth/sign-up' && 'active'}>
-							<FaRocket /> SignUp
-						</a>
-					</Button>
-					<Button asChild bgGradient={'to-t'} gradientFrom={'black'} gradientTo={'gray.950'}>
-						<a href="/auth/log-in" class={url == '/auth/log-in' && 'active'}>
-							<MdOutlineLogin /> Login
-
-						</a>
-					</Button>
+								</a>
+							</Button>
+						</>
+					)}
 				</Group>
 			</Flex>
 		</Box>
